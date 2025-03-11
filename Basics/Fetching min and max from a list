@@ -21,6 +21,9 @@ sorted_list = sorted(set(lst))
 min_no = sorted_list[0]
 max_no = sorted_list[-1]
 
+print(min_no)
+print(max_no)
+
 
 # Without in-built methods
 min_no = lst[0]
