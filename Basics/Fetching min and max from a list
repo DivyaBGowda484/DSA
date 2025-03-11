@@ -7,11 +7,20 @@ for i in range(no):
     num = input("Enter a number: ")
     lst.append(num)
 
+
 # With in-built methods
 min_no = min(lst)
 max_no = max(lst)
 print(min_no)
 print(max_no)
+
+
+# with sorting
+sorted_list = sorted(set(lst))
+
+min_no = sorted_list[0]
+max_no = sorted_list[-1]
+
 
 # Without in-built methods
 min_no = lst[0]
