@@ -1,0 +1,27 @@
+# given a list of numbers find min and max
+
+# To take List of numbers as an Input
+no = int(input("How many numbers you want to enter: "))
+lst = []
+for i in range(no):
+    num = input("Enter a number: ")
+    lst.append(num)
+
+# With in-built methods
+min_no = min(lst)
+max_no = max(lst)
+print(min_no)
+print(max_no)
+
+# Without in-built methods
+min_no = lst[0]
+max_no = lst[0]
+
+for num in lst:
+    if num <= min_no:
+        min_no = num
+    elif num >= max_no:
+        max_no = num
+
+print(min_no)
+print(max_no)
