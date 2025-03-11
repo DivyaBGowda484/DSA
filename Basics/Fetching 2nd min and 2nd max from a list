@@ -1,0 +1,24 @@
+# given a list of numbers find 2nd min and 2nd max
+
+# To take list of numbers as input
+no = int(input("How many numbers you want to enter: "))
+lst = []
+for i in range(no):
+    num = input("Enter a number: ")
+    if '.' in num:
+        lst.append(float(num))
+    else:
+        lst.append(int(num))
+
+# Edge case: if input given is less than 2 or repeated numbers of list having 2 elements
+if len(set(lst)) <= 2:
+    print("Not enough numbers to give 2nd largest and 2nd smallest number in the given list! Try giving more numbers or unique numbers")
+
+else:
+    sorted_list = sorted(set(lst))
+
+    second_min = sorted_list[1]
+    second_max = sorted_list[-2]
+
+    print(second_min)
+    print(second_max)
