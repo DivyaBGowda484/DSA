@@ -10,8 +10,8 @@ for i in range(no):
     else:
         lst.append(int(num))
 
-# Edge case: if input given is less than 2 or repeated numbers of list having 2 elements
-if len(set(lst)) <= 2:
+# Edge case: if input given is less than 2 or repeated numbers of list having 2 elements   (TIME COMPLEXITY: O(n logn))
+if len(set(lst)) <= 2: # sorting = O(n logn) and condition checking O(n)
     print("Not enough numbers to give 2nd largest and 2nd smallest number in the given list! Try giving more numbers or unique numbers")
 
 else:
@@ -22,3 +22,5 @@ else:
 
     print(second_min)
     print(second_max)
+
+TIME COMPLEXITY: O(n logn))
