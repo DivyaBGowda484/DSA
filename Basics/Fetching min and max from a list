@@ -8,14 +8,14 @@ for i in range(no):
     lst.append(num)
 
 
-# With in-built methods
+# With in-built methods  (TIME COMPLEXITY: O(n))
 min_no = min(lst)
 max_no = max(lst)
 print(min_no)
 print(max_no)
 
 
-# with sorting
+# with sorting   (TIME COMPLEXITY: O(n logn))
 sorted_list = sorted(set(lst))
 
 min_no = sorted_list[0]
@@ -25,7 +25,7 @@ print(min_no)
 print(max_no)
 
 
-# Without in-built methods
+# Without in-built methods   (TIME COMPLEXITY: O(n))
 min_no = lst[0]
 max_no = lst[0]
 
