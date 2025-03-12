@@ -37,3 +37,5 @@ for num in lst:
 
 print(min_no)
 print(max_no)
+
+TIME COMPLEXITY: O(n logn))
