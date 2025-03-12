@@ -1,0 +1,43 @@
+# Reverse an List
+
+# To take list of numbers as input
+no = int(input("Enter how many numbers you want to enter: "))
+while no == 0:
+    print("Try entering a number greater than 0 to reverse a list of numbers!")
+    no = int(input("Enter how many numbers you want to enter: "))
+else:
+    given_list = []
+    for i in range(no):
+        num = input("Enter a number: ")
+        if '.' in num:
+            given_list.append(float(num))
+        else:
+            given_list.append(int(num))
+
+
+# To reverse the array using built in function without changing original array   (TIME COMPLEXITY: O(n))
+ans = list(reversed(given_list))
+print(ans)
+
+
+# To reverse the array using built in function and changing the original array    (TIME COMPLEXITY: O(n))
+given_list.reverse()  # reverse() changes the original array
+print(given_list)
+
+
+# To reverse the array without using built-in functions(Slicing)    (TIME COMPLEXITY: O(n))
+reversed_list = given_list[::-1]
+print(reversed_list)
+
+
+# To reverse the array without using built-in functions(Loops)    (TIME COMPLEXITY: O(n))
+reversed_list = []
+i = len(given_list) - 1
+while(i>=0):
+    no = given_list[i]
+    reversed_list.append(no)
+    i-=1
+print(reversed_list)
+
+
+TIME COMPLEXITY: O(n)
