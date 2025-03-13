@@ -1,0 +1,22 @@
+# Given a array A and interger B find how many pairs are there in array A which can add to form integer B
+
+# To take input Array A and integer B
+import numpy as np
+nos = input("Enter numbers seprated by space: ").split()
+A = np.array(nos, dtype = int)
+B = int(input("Enter the sum(number) you want to find: "))
+
+
+# To find the pairs which can add to form integer B    (TIME COMPLEXITY: O(n^2))
+def find_pair(A, B):
+    pair = 0
+    for i in range(len(A)):
+        for j in range(i+1, len(A)):
+            if A[i] + A[j] == B:
+                pair += 1
+    print(pair)
+
+find_pair(A, B)
+
+
+#TIME COMPLEXITY(O(n^2))
