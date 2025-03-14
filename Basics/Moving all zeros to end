@@ -1,0 +1,14 @@
+# To Move All Zeros to the End
+
+# To get input as a list
+input_list = list(map(int, input("Enter numbers seperated by space: ").split()))
+
+
+# To move zerors to end    (TIME COMPLIXITY: O(n))
+zero_count = input_list.count(0)
+input_list = [num for num in input_list if num != 0]
+input_list += [0] * zero_count
+
+print(input_list)
+
+# TIME COMPLEXITY: O(n)
