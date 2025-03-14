@@ -1,0 +1,25 @@
+# To find the kth smallest number from a given list
+
+# To take list of numbers as input
+k = int(input("Enter the value of k: "))
+no = int(input("Enter the number of elements you want to enter: "))
+while k > no:
+    print("k is greater than the elements you will enter, Try enetering large number!")
+    k = int(input("Enter the value of k: "))
+    no = int(input("Enter the number of elements you want to enter: "))
+
+
+# To find kth element     (TIME COMPLEXITY: O(n))
+arr = []
+for i in range(no):
+    num = input("enter the number: ")
+    if '.' in num:
+        arr.append(float(num))
+    else:
+        arr.append(int(num))
+
+
+arr.sort()
+print(arr[k-1])
+
+# TIME COMPLEXIY: O(n)
