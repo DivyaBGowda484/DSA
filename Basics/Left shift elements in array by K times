@@ -1,0 +1,30 @@
+# Given a array A and a integer number K left shift the elements by K 
+
+# To take input A and K from the user
+import numpy as np
+A = []
+no = int(input("Enter the number of elements you want to enter: "))
+while no == 0:
+    print("Try entering some numbers to do left shift!")
+    no = int(input("Enter the number of elements you want to enter: "))
+for i in range(no):
+    ele = input("Enter the element: ")
+    if "." in ele:
+        A.append(float(ele))
+    else:
+        A.append(int(ele))
+k = int(input("Enter a number for K: "))
+
+
+# To do left shift    (TIME COMPLEXITY: O(n))
+if k < len(A):
+    A = A[k:] + A[:k]
+    print(A)
+if k > len(A):
+    ans = k % len(A)
+    A = A[ans:] + A[:ans]
+    print(A)
+else:
+    print(A)
+
+# TIME COMPLEXITY: O(n)
