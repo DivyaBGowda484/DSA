@@ -7,7 +7,7 @@ sorted_arr1 = np.sort(arr1)
 sorted_arr2 = np.sort(arr2)
 
 
-# To merge given sorted arrays to single sorted arrays
+# To merge given sorted arrays to single sorted arrays    (TIME COMPLEXITY: O(n))
 single_sorted = []
 def merge_sorted_array():
     i, j = 0,0
@@ -21,6 +21,20 @@ def merge_sorted_array():
         else:
             single_sorted.append(sorted_arr1[i])
             single_sorted.append(sorted_arr2[j])
+            i+=1
+            j+=1
+
+    # Add remaining elements of sorted_arr1, if any
+    while i < len(sorted_arr1):
+        single_sorted.append(sorted_arr1[i])
+        i += 1
+
+    # Add remaining elements of sorted_arr2, if any
+    while j < len(sorted_arr2):
+        single_sorted.append(sorted_arr2[j])
+        j += 1
     print(single_sorted)
 
 merge_sorted_array()
+
+# TIME COMPLEXITY: O(n)
