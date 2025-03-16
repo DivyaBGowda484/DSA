@@ -1,13 +1,26 @@
 # Merge two sorted arrays to a single sorted array
 
 import numpy as np
-arr1 = np.array(list(map(int, input("Enter numbers seperated by space: ").split())))
-arr2 = np.array(list(map(int, input("Enter numbers seperated by space: ").split())))
+arr1 = np.array(list(map(int, input("Enter numbers seperated by space for array 1: ").split())))
+arr2 = np.array(list(map(int, input("Enter numbers seperated by space for array 2: ").split())))
+sorted_arr1 = np.sort(arr1)
+sorted_arr2 = np.sort(arr2)
 
 
-# To get single sorted array    (TIME COMPLEXITY: O(n logn))
-combined_arr = np.concatenate((arr1, arr2))
-single_sorted = np.sort(combined_arr)
-print(single_sorted)
+# To merge given sorted arrays to single sorted arrays
+single_sorted = []
+def merge_sorted_array():
+    i, j = 0,0
+    while i < len(sorted_arr1) and j < len(sorted_arr2):
+        if sorted_arr1[i] < sorted_arr2[j]:
+            single_sorted.append(sorted_arr1[i])
+            i+=1
+        elif sorted_arr2[j] < sorted_arr1[i]:
+            single_sorted.append(sorted_arr2[j])
+            j+=1
+        else:
+            single_sorted.append(sorted_arr1[i])
+            single_sorted.append(sorted_arr2[j])
+    print(single_sorted)
 
-# TIME COMPLEXITY: O(n logn)
+merge_sorted_array()
