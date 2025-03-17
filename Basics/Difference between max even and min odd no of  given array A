@@ -9,7 +9,7 @@ for i in range(N):
     A.append(num)
 
 
-# To return the difference between max even and min odd numbers
+# To return the difference between max even and min odd numbers    (TIME COMPLEXITY: O(n))
 def max_min_diff(A):
     max_even = None
     min_odd = None
@@ -29,3 +29,5 @@ def max_min_diff(A):
 
 result = max_min_diff(A)
 print(result)
+
+# TIME COMPLEXITY: O(n)
