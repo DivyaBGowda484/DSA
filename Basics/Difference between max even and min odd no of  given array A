@@ -27,4 +27,5 @@ def max_min_diff(A):
     else:
         return 0
 
-max_min_diff()
+result = max_min_diff(A)
+print(result)
