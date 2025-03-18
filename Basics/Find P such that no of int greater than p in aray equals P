@@ -8,15 +8,19 @@ for i in range(N):
     A.append(num)
 
 
-# 
+# To find P     (TIME COMPLEXITY: O(n logn))
 sorted_arr = sorted(A)
-def find_P(sorted_arr):
-
-    for i in range(len(sorted_arr)):
-        val = len(sorted_arr) - i - 1
-        if val == sorted_arr[i]:
-            return 1
+n = len(sorted_arr)
+def find_P(A):
+    for i in range(n):
+        num_greater = n - i - 1
+        if sorted_arr[i] == num_greater:
+            # Ensure the next element is last or is different to avoid duplicates
+            if i == n-1 or sorted_arr[i] != sorted_arr[i + 1]:
+                return 1
     return -1
 
 result = find_P(sorted_arr)
 print(result)
+
+# TIME COMPLEXITY: O(n logn)
