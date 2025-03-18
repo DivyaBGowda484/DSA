@@ -1,7 +1,6 @@
 # Given an array A of size N, return the difference between max even and min odd numbers of that array
 
 # To take user input for integer array A of size N
-import numpy as np
 N = int(input("Enter the number of elements you want to enter: "))
 A = []
 for i in range(N):
