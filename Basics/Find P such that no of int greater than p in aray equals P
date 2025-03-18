@@ -1,0 +1,22 @@
+# Given a integer array A, Find P exists in A such that no of int greater than p in aray equals P
+
+# To fetch Array as a user input 
+A = []
+N = int(input("Enter the number od elements you want to enter: "))
+for i in range(N):
+    num = int(input("Enter element: "))
+    A.append(num)
+
+
+# 
+sorted_arr = sorted(A)
+def find_P(sorted_arr):
+
+    for i in range(len(sorted_arr)):
+        val = len(sorted_arr) - i - 1
+        if val == sorted_arr[i]:
+            return 1
+    return -1
+
+result = find_P(sorted_arr)
+print(result)
