@@ -1,0 +1,45 @@
+# To create a function which creates LinkedList by taking integer N as input where it is the size of Linkedlist and creates LL for n elements which is given by user
+
+class Node:
+    def __init__(self, data):
+        self.data = data  # Store the data
+        self.next = None  # Pointer to the next node
+
+class LinkedList:
+    def __init__(self):
+        self.head = None  # Initially, the linked list is empty
+
+    # Function to insert a new node at the end of the list
+    def insert(self, data):     # TIME COMPLEXITY: O(n^2)
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node  # If the list is empty, the new node becomes the head
+        else:
+            temp = self.head
+            while temp.next:  # Traverse to the last node
+                temp = temp.next
+            temp.next = new_node  # Attach the new node at the end of the list
+
+    # Function to display the elements of the list
+    def display(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+# Function to create a linked list of size n with user inputs
+def create_linked_list(n):
+    linked_list = LinkedList()
+    for i in range(n):
+        element = int(input(f"Enter element {i+1}: "))
+        linked_list.insert(element)
+    return linked_list
+
+# Input the size of the linked list
+n = int(input("Enter the size of the linked list: "))
+ll = create_linked_list(n)
+ll.display()
+
+
+# TIME COMPLEXITY: O(n^2)
