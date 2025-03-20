@@ -1,0 +1,40 @@
+# Given a list of numbers such that every number is repeated twice except 1 element. Print the number which is not repeated.
+
+
+# To take user input for list of intergers A
+n = int(input("Enter the number of elements you want to enter: "))
+while (n % 2 ==0):
+    print("PLease satisfy the Question Conditions to continue!")
+    n = int(input("Enter the number of elements you want to enter: "))
+A = []
+for i in range(n):
+    num = int(input("Enter a element such that it satisfies the question condition: "))
+    A.append(num)
+
+
+# Using sorting and Traversing    ()
+sorted_A = sorted(A)
+
+for i in range(0, n-1, 2):
+    if sorted_A[i] != sorted_A[i+1]:
+        print(sorted_A[i])
+        break
+else:
+    print(sorted_A[-1])
+
+
+# Using Dictionaries
+frequency = {}
+
+for num in A:
+    if num in frequency:
+        frequency[num] += 1
+    else:
+        frequency[num] = 1
+    
+for num, count in frequency.items():
+    if count == 1:
+        print(num)
+        break
+
+
