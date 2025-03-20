@@ -12,10 +12,10 @@ for i in range(n):
     A.append(num)
 
 
-# Using sorting and Traversing    ()
-sorted_A = sorted(A)
+# Using sorting and Traversing    (TIME COMPLEXITY: O(n logn))
+sorted_A = sorted(A)    # O(n logn)
 
-for i in range(0, n-1, 2):
+for i in range(0, n-1, 2):    # O(n)
     if sorted_A[i] != sorted_A[i+1]:
         print(sorted_A[i])
         break
@@ -23,7 +23,7 @@ else:
     print(sorted_A[-1])
 
 
-# Using Dictionaries
+# Using Dictionaries    (TIME COMPLEXITY: O(n))
 frequency = {}
 
 for num in A:
@@ -37,4 +37,4 @@ for num, count in frequency.items():
         print(num)
         break
 
-
+# TIME COMPLEXITY: O(n)
