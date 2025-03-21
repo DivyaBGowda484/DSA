@@ -9,9 +9,9 @@ class LinkedList:
     def __init__(self):
         self.head = None
     
-    def insert(self, data):
+    def insert(self, data):    #O(n) O(n)
         new_node = Node(data)
-        if self.head == None:
+        if self.head is None:
             self.head = new_node
         else:
             current = self.head
@@ -19,43 +19,46 @@ class LinkedList:
                 current = current.next
             current.next = new_node
         
-    def display(self):
+    def display(self):    #O(n) O(1)
         current = self.head
         while current:
-            print(current.data, end=" ")
+            print(current.data, end=" -> ")
             current = current.next
-        
+        print("None")
 
 def create_linked_lists():
-    n = int(input("Enter the size of first linked list: "))
-    m = int(input("Enter the size of second linked list: "))
-    if n != m:
-        linked_list1 = LinkedList()
-        linked_list2 = LinkedList()
+    n = int(input("Enter the size of the first linked list: "))
+    m = int(input("Enter the size of the second linked list: "))
+    
+    linked_list1 = LinkedList()
+    linked_list2 = LinkedList()
 
-        # Creating 2 Sorted LinkedLists
-        for i in range(n):
-            linked_list1.insert(i*2)
-        for i in range(m):
-            linked_list2.insert(i*2+1)
+    # Creating two sorted linked lists    #O(n^2)
+    for i in range(n):
+        linked_list1.insert(i * 2)  # Inserts even numbers
+    for i in range(m):
+        linked_list2.insert(i * 2 + 1)  # Inserts odd numbers
 
-        # If one or both lists are empty
-        if (n == 0) and (m == 0):
-            return None
-        if linked_list1.head is None:
-            return Linked_list2
-        if linked_list2.head is None:
-            return linked_list1
-
-        # Merging the 2 LinkedLists
-        merged_list = merge_linked_lists(linked_list1, linked_list2)
+    # Handling edge cases where one or both lists are empty
+    if linked_list1.head is None and linked_list2.head is None:
+        print("Both lists are empty!")
+        return
+    elif linked_list1.head is None:
         print("Merged Sorted Linked List:")
-        merged_list.display()
-            
-        
+        linked_list2.display()
+        return
+    elif linked_list2.head is None:
+        print("Merged Sorted Linked List:")
+        linked_list1.display()
+        return
+    
+    # Merging the two linked lists
+    merged_list = merge_linked_lists(linked_list1, linked_list2)
+    
+    print("Merged Sorted Linked List:")
+    merged_list.display()
 
-# Merging two LinkedLists:
-def merge_linked_lists(linked_list1, linked_list2):
+def merge_linked_lists(linked_list1, linked_list2):    #O(n) O(n)
     dummy_node = Node(0)  # Dummy node to form the merged list
     tail = dummy_node
 
@@ -79,8 +82,11 @@ def merge_linked_lists(linked_list1, linked_list2):
         tail.next = list2_node
 
     merged_list = LinkedList()
-    merged_list.head = dummy_node.next  # The merged list starts from dummy_node.next
+    merged_list.head = dummy_node.next  # The merged list starts from dummy_node.next (0 not included)
     return merged_list
 
 
 create_linked_lists()
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(n)
