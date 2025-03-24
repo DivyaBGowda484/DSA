@@ -12,7 +12,7 @@ for i in range(n):
     A.append(num)
 
 
-# Using sorting and Traversing    (TIME COMPLEXITY: O(n logn))
+# Using sorting and Traversing    (TIME COMPLEXITY: O(n logn), SPACE: O(n))
 sorted_A = sorted(A)    # O(n logn)
 
 for i in range(0, n-1, 2):    # O(n)
@@ -23,7 +23,7 @@ else:
     print(sorted_A[-1])
 
 
-# Using Dictionaries    (TIME COMPLEXITY: O(n))
+# Using Dictionaries    (TIME COMPLEXITY: O(n), SPACE: O(n))
 frequency = {}
 
 for num in A:
@@ -38,3 +38,18 @@ for num, count in frequency.items():
         break
 
 # TIME COMPLEXITY: O(n)
+# SAPCE COMPLEXITY: O(n)
+
+
+# Since the Above approch takes time and space complexity as O(n) and O(n) respectively
+# Optimized Approch (Using XOR)
+def find_unique_number(A):
+    unique_no = 0
+    for num in A:
+        unique_no ^= num
+    return unique_no
+
+print(find_unique_number(A))
+
+# TIME COMPLEXITY: O(n)
+# SAPCE COMPLEXITY: O(1)
