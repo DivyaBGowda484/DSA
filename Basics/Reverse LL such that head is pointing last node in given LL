@@ -1,2 +1,77 @@
 # Write a function such that it should reverse the given linked list (Reverting a linked list by pointing the head to last node in the given linked list)
 
+# Creating a LinkedList for given input value:
+class Node:
+    def __init__(self, data):
+        self.data = data  # Store the data
+        self.next = None  # Pointer to the next node
+
+class LinkedList:
+    def __init__(self):
+        self.head = None  # Initially, the linked list is empty
+
+    # Function to insert a new node at the end of the list
+    def insert(self, data):     # TIME COMPLEXITY: O(n^2)
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node  # If the list is empty, the new node becomes the head
+        else:
+            temp = self.head
+            while temp.next:  # Traverse to the last node
+                temp = temp.next
+            temp.next = new_node  # Attach the new node at the end of the list
+
+    # Function to display the elements of the list
+    def display(self):    #O(n)
+        temp = self.head
+        while temp:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+        print("None")
+
+
+# Function to create a linked list of size n with user inputs
+def create_linked_list(n):
+    linked_list = LinkedList()
+    for i in range(n):
+        data = int(input("Enter the value for node {}: ".format(i+1)))
+        linked_list.insert(data)
+    return linked_list
+
+
+# Input the size of the linked list
+n = int(input("Enter the number of elements you want to enter: "))
+ll = create_linked_list(n)
+ll.display
+
+
+# Function to reverse the linked list
+def reverse_linked_list(head):  #S:O(1)
+    prev = None
+    current = head
+
+    while current:    #T:O(n)
+        next = current.next  # Save the next node
+        current.next = prev  # Reverse the pointer
+        prev = current       # Move prev forward
+        current = next       # Move to the next node
+    return prev  # It will be the new head
+
+
+# Input the size of the linked list
+n = int(input("Enter the number of elements you want to enter: "))
+ll = create_linked_list(n)
+
+# Display the original list
+print("Original Linked List:")
+ll.display()
+
+# Reverse the linked list
+ll.head = reverse_linked_list(ll.head)
+
+# Display the reversed list
+print("Reversed Linked List:")
+ll.display()
+
+# TIME COMLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
