@@ -5,16 +5,16 @@ We can return leaders in any order"""
 
 # To take user input
 n = int(input("Enter the number of elements you want to enter: "))
-while n=0:
+while n==0:
     print("Please try to enter some numbers to the array!")
     n = int(input("Enter the number of elements you want to enter: "))
 A = list(map(int, input("Enter space seperated distinct integer numbers: ").split()))
 
 
-# To find all leaders in a given array
+# To find all leaders in a given array   
 def find_leaders(A):
-    n = len(A)
-    leaders = [] 
+    n = len(A) #T: O(1)
+    leaders = [] #S: O(n)
     max_from_right = A[-1]
     leaders.append(max_from_right)
 
@@ -28,3 +28,6 @@ def find_leaders(A):
 
 leaders = find_leaders(A)
 print(leaders)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
