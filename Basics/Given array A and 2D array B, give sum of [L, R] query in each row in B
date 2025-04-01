@@ -1,0 +1,56 @@
+"""Given an integer array A of length N and a 2D integer array B with dimensions M x 2, where each row denotes a [L, R] query.
+For each query, you have to find the sum of all elements from L to R indices in A.
+(find A[L] + A[L + 1] + A[L + 2] +... + A[R - 1] + A[R] for each query)"""
+
+# To take array A and B as user input
+A = list(map(int, input("Enter space seperated numbers: ").split()))
+
+# Asking for the number of rows (m), with 2 columns
+m = int(input("Enter the number of rows (m): "))
+
+# Initializing an empty 2D array
+B = []
+
+# Taking input for each row
+for i in range(m):
+    while True:
+        # Taking input for each row 
+        row = list(map(int, input(f"Enter two integers for row {i+1}, with the first number smaller than the second: ").split()))
+
+        # Check if exactly two numbers are provided and the first number is less than the second
+        if len(row) == 2 and row[0] <= row[1]:
+            B.append(row)
+            break  # Exit the loop if the condition is met
+        else:
+            print("Invalid input. Please enter exactly two integers where the first number is smaller than or equal to the second. Try again.")
+
+
+# Function to compute prefix sum and find sums in the given range
+def find_sum(A, B):
+    n = len(A) #T:O(1)
+    prefix_sum = [0] * n #S:O(n)
+    prefix_sum[0] = A[0]
+
+    # Compute prefix sum array
+    for i in range(1, n):
+        prefix_sum[i] = prefix_sum[i - 1] + A[i]
+
+    arr_sum = []
+    # Process sum of each query 
+    for L, R in B: #T:O(1)
+        if L == 0:
+            row_sum = prefix_sum[R]
+        else:
+            row_sum = prefix_sum[R] - prefix_sum[L - 1]
+        arr_sum.append(row_sum)
+
+    return arr_sum
+
+# Compute results for all queries
+result = find_sum(A, B)
+
+# Output the results
+print("Query results:", result)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
