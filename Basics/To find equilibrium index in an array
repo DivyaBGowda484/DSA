@@ -1,0 +1,46 @@
+"""Given an integer array A of size N. Your task is to find the equilibrium index of the given array
+(The equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes)
+If there are no elements that are at lower indexes or at higher indexes, then the corresponding sum of elements is considered as 0.
+If there is no equilibrium index then return -1.
+If there are more than one equilibrium indexes then return the minimum index."""
+
+
+# To take user input for A
+A = list(map(int, input("Enter space seperated numbers: ").split()))
+N = len(A)
+
+
+# To find Equilibrium Index:
+def find_equilibrium(A,N):
+    if N == 0:
+        return -1
+    if N == 1:
+        return 0
+    for i in range(N):
+        if sum(A[:i]) == sum(A[i+1:]):  #T: O(n^2) # S:O(n^2), due to list slicing
+            return i
+    return -1
+
+result = find_equilibrium(A,N)
+print(result)
+
+# As this takes Time and Space complexity: O(n^2)
+
+
+# OPTIMIZED CODE
+def find_equi(N,A):
+    tot_sum = sum(A) #T:O(N)
+    left_sum = 0
+
+    for i in range(N):
+        right_sum = tot_sum - left_sum - A[i]
+        if left_sum == right_sum:
+            return i
+        left_sum += A[i]
+    return -1
+
+result = find_equi(N,A)
+print(result)
+
+# TIME COMPLEXITY:O(n)
+# SPACE COMPLEXITY:O(1)
