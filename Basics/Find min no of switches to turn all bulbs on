@@ -1,0 +1,36 @@
+"""A wire connects N light bulbs. Each bulb has a switch associated with it; however, due to faulty wiring, a switch also changes the state of all the bulbs to the right of the current bulb.
+Given an initial state of all bulbs, find the minimum number of switches you have to press to turn on all the bulbs.
+You can press the same switch multiple times. 
+Note: 0 represents the bulb is off and 1 represents the bulb is on."""
+
+
+# To take user input of current state of bulbs:
+A = list(map(int, input("Enter space sperated inital bulb states(0,1): ").split()))
+
+
+# To find minimum number of switches to turn all bulbs on:
+def min_switches(A):
+    N = len(A) #S: O(1)
+    count = 0
+
+    for i in range(N):
+        if A[i] == 0:
+            count += 1
+            for j in range(i, N):
+                A[j] = 1 - A[j]
+    return count
+    
+result = min_switches(A)
+print(result)
+
+# TIME COMPLEXITY:O(n^2)
+# SPACE COMPLEXITY:O(1)
+
+
+# OPTIMIZED CODE:
+def min_switches(A):
+    flip = 0
+    count = 0
+
+    for bulb in A:
+        
