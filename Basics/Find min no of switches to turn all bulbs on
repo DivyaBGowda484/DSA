@@ -9,7 +9,7 @@ A = list(map(int, input("Enter space sperated inital bulb states(0,1): ").split(
 
 
 # To find minimum number of switches to turn all bulbs on:
-def min_switches(A):
+def min_switches_brute(A):
     N = len(A) #S: O(1)
     count = 0
 
@@ -20,17 +20,38 @@ def min_switches(A):
                 A[j] = 1 - A[j]
     return count
     
-result = min_switches(A)
-print(result)
+brute_result = min_switches_brute(A.copy())
+print("Brute-force Result:", brute_result)
 
 # TIME COMPLEXITY:O(n^2)
 # SPACE COMPLEXITY:O(1)
 
 
 # OPTIMIZED CODE:
-def min_switches(A):
+def min_switches_optimized(A):
     flip = 0
     count = 0
 
     for bulb in A:
-        
+        effective_state = bulb if flip % 2 == 0 else 1 - bulb
+        if effective_state == 0:
+            count += 1
+            flip += 1
+    return count
+
+optimized_result = min_switches_optimized(A.copy())
+print("Optimized Result:", optimized_result)
+
+
+"""
+| Index | Bulb | Flip So Far | Flip % 2 | Real (Effective) State | Switch Needed? | Count | Flip Now   |
+|-------|------|-------------|----------|-------------------------|----------------|--------|----------|
+| 0     | 1    | 0           | 0        | 1 (no flip)             | ❌ No          | 0      | 0        |
+| 1     | 0    | 0           | 0        | 0 (no flip)             | ✅ Yes         | 1      | 1        |
+| 2     | 0    | 1           | 1        | 1 (flipped)             | ❌ No          | 1      | 1        |
+| 3     | 1    | 1           | 1        | 0 (flipped)             | ✅ Yes         | 2      | 2        |
+| 4     | 1    | 2           | 0        | 1 (no flip)             | ❌ No          | 2      | 2        |
+| 5     | 0    | 2           | 0        | 0 (no flip)             | ✅ Yes         | 3      | 3        |
+| 6     | 1    | 3           | 1        | 0 (flipped)             | ✅ Yes         | 4      | 4        |
+| 7     | 0    | 4           | 0        | 0 (no flip)             | ✅ Yes         | 5      | 5        |
+"""
