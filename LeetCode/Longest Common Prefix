@@ -1,0 +1,27 @@
+# Question (14): https://leetcode.com/problems/longest-common-prefix
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        if not strs:
+            return ""
+
+        # Start with the first string as the prefix
+        prefix = strs[0]
+
+        # Compare the prefix with each word
+        for word in strs[1:]:
+            
+            # Reduce the prefix until it matches the start of the current word
+            """The below while loop checks like 
+            flight".startswith("fl")  → True
+            "flight".startswith("fli") → True
+            "flight".startswith("xyz") → False"""
+
+            while not word.startswith(prefix):  
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
+        return prefix
+
+# TIME COMPLEXITY:O(n)
+# SPACE COMPLEXITY:O(1)
