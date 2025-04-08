@@ -1,0 +1,10 @@
+# Question 58: Length of Last Word (https://leetcode.com/problems/length-of-last-word)
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        s = s.strip() #T: O(n) #S: O(n) - returns new string
+        words = s.split() #T: O(n) #S: O(n)
+        return len(words[-1])
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
