@@ -1,0 +1,9 @@
+Question 67: Add Binary (https://leetcode.com/problems/add-binary)
+
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        result = bin(int(a,2) + int(b,2))[2:] # here in (a,2), 2 represents from binary form 
+        return result
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
