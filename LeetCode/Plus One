@@ -1,0 +1,11 @@
+Question 66: Plus One (https://leetcode.com/problems/plus-one)
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        integer = int(''.join(map(str, digits))) # T: map, join, int all takes O(n), S: O(n)
+        incremented_int = integer + 1
+        result = [int(digit) for digit in str(incremented_int)] # T: str, list both takes O(n), S: O(n)
+        return result
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
