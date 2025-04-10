@@ -1,0 +1,25 @@
+Question 69: Sqrt(x) (https://leetcode.com/problems/sqrtx)
+
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        # As this q is monotonic - means it only increases -and lies B/W 0 to x(no) - we use Binary search
+
+        if x < 2:
+            return x # sqrt of 0 and 1 is itself
+
+        left = 0
+        right = x
+        result = 0
+
+        while left <= right:
+            mid = (left + right) // 2
+            if mid * mid <= x:
+                result = mid
+                left = mid + 1
+            else:
+                right = mid - 1
+        return result
+
+                
+# TIME COMPLEXITY: O(log n) - Binary search    
+# SPACE COMPLEXITY:O(1)
