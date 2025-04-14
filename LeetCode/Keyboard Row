@@ -1,0 +1,20 @@
+Question 500: Keyboard Row (https://leetcode.com/problems/keyboard-row)
+
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+
+        row1 = set("qwertyuiop")
+        row2 = set("asdfghjkl")
+        row3 = set("zxcvbnm")
+
+        result = []
+
+        for word in words: #T:O(N) - for no of words
+            lower_word = set(word.lower())  #T: O(K) - for each word - changing len of word to lowercase
+            if lower_word.issubset(row1) or lower_word.issubset(row2) or lower_word.issubset(row3):
+                result.append(word)
+        return result
+
+
+# TIME COMPLEXITY: O(N * K)
+# SPACE COMPLEXITY: O(1)
