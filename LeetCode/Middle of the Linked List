@@ -1,0 +1,48 @@
+Question 876: Middle of the Linked List (https://leetcode.com/problems/middle-of-the-linked-list)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """# To find the length of LL
+        count = 1
+        temp = head
+
+        while temp.next != None:
+            temp = temp.next
+            count += 1
+
+        # Corner Cases
+        if count == 1:
+            return head
+        elif count == 2:
+            return head.next
+
+        # Be it odd or even:
+        else:
+            target_index = count // 2
+            current_index = 0
+            current = head
+
+            while current and current_index <= target_index:
+                if current_index == target_index:
+                    return current
+                current = current.next
+                current_index += 1"""
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+# Optimized Code:
+        fast = slow = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
