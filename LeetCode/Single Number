@@ -1,0 +1,11 @@
+Question 136: Single Number (https://leetcode.com/problems/single-number)
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        unique_no = 0
+        for num in nums:
+            unique_no ^= num
+        return unique_no
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
