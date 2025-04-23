@@ -2,13 +2,28 @@ Question 28: Find the Index of the First Occurrence in a String (https://leetcod
 
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
+# BRUTE FORCE:
+        """length = len(needle)
+        if length == 0:
+            return 0
+        if len(haystack) == 1:
+            if needle == haystack:
+                return 0
+            return -1
+        for i in range(len(haystack) - length + 1):
+            if needle == haystack[i:i+length]:
+                return i
+        return -1
+# TIME COMPLEXITY: O((n - m + 1) * m)
+# SPACE COMPLEXITY: O(1)"""
+
+# SAME APPROCH BETTER:
         if needle == "":
             return 0
         for i in range(len(haystack) - len(needle) + 1):
             if haystack[i:i+len(needle)] == needle:
                 return i
         return -1
-                
 
-# TIME COMPLEXITY: O(n * m)
+# TIME COMPLEXITY: O((n - m + 1) * m)
 # SPACE COMPLEXITY: O(1)
