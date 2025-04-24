@@ -3,7 +3,7 @@ Question 500: Keyboard Row (https://leetcode.com/problems/keyboard-row)
 class Solution:
     def findWords(self, words: List[str]) -> List[str]:
 
-        row1 = set("qwertyuiop")
+        row1 = set("qwertyuiop") #Sets make checking if a word belongs to a row efficient (Hash table)
         row2 = set("asdfghjkl")
         row3 = set("zxcvbnm")
 
@@ -11,7 +11,7 @@ class Solution:
 
         for word in words: #T:O(N) - for no of words
             lower_word = set(word.lower())  #T: O(K) - for each word - changing len of word to lowercase
-            if lower_word.issubset(row1) or lower_word.issubset(row2) or lower_word.issubset(row3):
+            if lower_word.issubset(row1) or lower_word.issubset(row2) or lower_word.issubset(row3): #this step becomes easier when set is used as it will have created Hash table 
                 result.append(word)
         return result
 
