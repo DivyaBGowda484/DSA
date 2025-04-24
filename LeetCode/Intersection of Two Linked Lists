@@ -24,8 +24,8 @@ class Solution:
 # OPTIMIZED CODE:
 pA, pB = headA, headB
 while pA != pB:
-    pA = pA.next if pA else pB
-    pB = pB.next if pB else pA
+    pA = pA.next if pA else headB
+    pB = pB.next if pB else headA
 return pA
 
 
