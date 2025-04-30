@@ -22,3 +22,12 @@ class Solution:
 
 # TIME COMPLEXITY: O(n + m)
 # SPACE COMPLEXITY: O(n + m)
+
+# OPTIMIZED:
+
+        for word in re.sub(r"[!?',;.\"]", " ", paragraph).lower().split():
+            if word not in banned_set:
+                freq[word] += 1
+
+# TIME COMPLEXITY: O(n + m + k)
+# SPACE COMPLEXITY: O(n + m + k)
