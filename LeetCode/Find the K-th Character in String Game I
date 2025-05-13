@@ -1,0 +1,24 @@
+Question 3304: Find the K-th Character in String Game I (https://leetcode.com/problems/find-the-k-th-character-in-string-game-i?envType=problem-list-v2&envId=recursion)
+
+class Solution:
+    def kthCharacter(self, k: int) -> str:
+        
+        word = "a"  # Initial word
+
+        # Keep generating next_part and appending until length >= k
+        while len(word) < k:
+            next_part = ""
+
+            # For each character, find its next alphabet character
+            for c in word:
+                next_char = chr((ord(c) - ord('a') + 1) % 26 + ord('a'))
+                next_part += next_char
+            
+            # Append the generated part to word
+            word += next_part
+
+        # Return k-th character (1-indexed, so we use k-1 for 0-based indexing)
+        return word[k - 1]
+
+# TIME COMPLEXITY: O(K)
+# SPACE COMPLEXITY: O(k)
