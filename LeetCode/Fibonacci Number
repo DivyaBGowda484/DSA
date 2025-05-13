@@ -1,0 +1,24 @@
+Question 509: Fibonacci Number (https://leetcode.com/problems/fibonacci-number?envType=problem-list-v2&envId=recursion)
+
+class Solution:
+    def fib(self, n: int) -> int:
+        """ USING RECURSION
+        if n == 0:
+            return 0
+        if n == 1:
+            return 1
+
+        return self.fib(n-1) + self.fib(n-2)
+
+# TIME COMPLEXITY: O(2^n)
+# SPACE COMPLEXITY: O(n)"""
+
+# OPTIMIZED SOLUTION: 
+        a,b=0,1
+
+        for _ in range(n):
+            a,b = b, a+b
+        return a
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
