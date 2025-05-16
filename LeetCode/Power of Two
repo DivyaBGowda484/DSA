@@ -1,0 +1,35 @@
+Question 231: Power of Two (https://leetcode.com/problems/power-of-two?envType=problem-list-v2&envId=recursion)
+
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        """for x in range(0,32):
+            if n == 2**x:
+                return True
+        return False"""
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
+
+        """if n <= 0:
+            return False
+        
+        # Keep dividing by 2 if divisible
+        while n % 2 == 0:
+            n //= 2
+        
+        # If n becomes 1, it's a power of two
+        return n == 1"""
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
+
+        return n > 0 and (n & (n - 1)) == 0
+"""EXPLANATION:
+For n = 16 (10000):
+
+n - 1 = 15 (01111)
+
+n & (n - 1) = 10000 & 01111 = 00000 →  Power of 2."""
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
