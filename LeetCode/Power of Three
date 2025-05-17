@@ -1,0 +1,31 @@
+Question 326: Power of Three (https://leetcode.com/problems/power-of-three?envType=problem-list-v2&envId=recursion)
+
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        """for x in range(0,32):
+            if n == 3**x:
+                return True
+        return False"""
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
+
+        """if n <= 0:
+            return False
+        
+        while n % 3 == 0:
+            n //= 3
+        
+        return n == 1"""
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
+
+        if n <= 0:
+            return False
+        
+        log_val = math.log10(n) / math.log10(3)
+        return log_val.is_integer()
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
