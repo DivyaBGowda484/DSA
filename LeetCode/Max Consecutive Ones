@@ -1,0 +1,18 @@
+Question 485: Max Consecutive Ones (https://leetcode.com/problems/max-consecutive-ones?envType=problem-list-v2&envId=eeudwo2i)
+
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
+        tot_cur = 0
+        max_count = 0
+        for i in nums:
+            if i == 1:
+                tot_cur += 1
+                '''max_count = max(max_count, tot_cur)'''
+                if max_count < tot_cur:
+                    max_count = tot_cur
+            else:
+                tot_cur = 0
+        return max_count
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
