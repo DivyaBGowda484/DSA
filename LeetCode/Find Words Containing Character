@@ -1,0 +1,28 @@
+Question 2942: Find Words Containing Character (https://leetcode.com/problems/find-words-containing-character?envType=daily-question&envId=2025-05-24)
+
+class Solution:
+    def findWordsContaining(self, words: List[str], x: str) -> List[int]:
+        '''res = []
+        for i in range(len(words)):
+            if x in words[i]:
+                res.append(i)
+        return res'''
+
+# TIME COMPLEXITY: O(n*m)
+# SPACE COMPLEXITY: O(n)
+
+# Similar but decreases time taken
+        '''indices=[]
+        for i in range(len(words)):
+            if x in words[i]:
+                indices.append(i)
+        return indices'''
+
+# TIME COMPLEXITY: O(n*m)
+# SPACE COMPLEXITY: O(n)
+
+# OPTIMIZED:
+        return [i for i, word in enumerate(words) if x in word]
+
+# TIME COMPLEXITY: O(n*m)
+# SPACE COMPLEXITY: O(n)
