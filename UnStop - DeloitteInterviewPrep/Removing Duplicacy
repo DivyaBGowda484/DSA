@@ -1,0 +1,17 @@
+Question 1: Removing Duplicacy (https://unstop.com/practice/company-preparation/deloitte/deloitte-coding-assessment-29641/question-29697)
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+def remove_adjacent_duplicates(s):
+    stack = []
+    for char in s:
+        if stack and stack[-1] == char:
+            stack.pop()  
+        else:
+            stack.append(char)
+    return ''.join(stack)
+
+# Input
+s = input().strip()
+
+# Output
+print(remove_adjacent_duplicates(s))
