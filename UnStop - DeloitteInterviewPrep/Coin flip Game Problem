@@ -1,0 +1,11 @@
+Question 3: Coin flip Game Problem (https://unstop.com/courses/unstop-practice-interview-pep/deloitte/deloitte-coding-assessment-29641/question-29699)
+
+import math
+def find(m):
+    # User logic goes here
+    return int(math.isqrt(m))
+
+if __name__ == "__main__":
+    m = int(input())
+    count = find(m)
+    print(count)
