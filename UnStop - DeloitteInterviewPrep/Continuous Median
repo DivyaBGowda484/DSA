@@ -1,0 +1,48 @@
+Question 4: Continuous Median (https://unstop.com/courses/unstop-practice-interview-pep/deloitte/deloitte-coding-assessment-29641/question-37124)
+
+def user_logic(n, arr):
+    """
+    Write your logic here.
+    Parameters:
+        n (int): The size of the array
+        arr (list): List of integers
+    Returns:
+        int: The sum of all the medians based on the problem statement
+    """
+    arr.sort()  # Sort initially to always get correct medians
+    total_median_sum = 0
+    
+    while arr:
+        size = len(arr)
+        mid = size // 2
+        
+        if size % 2 == 1:
+            # Odd: median is middle element
+            median = arr[mid]
+            total_median_sum += median
+            del arr[mid]
+        else:
+            # Even: median is average, but delete the smaller one
+            median = (arr[mid - 1] + arr[mid]) // 2
+            total_median_sum += median
+            del arr[mid - 1]  # Delete smaller of two middles
+    
+    return total_median_sum
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().strip().split()
+    
+    n = int(data[0])  # First input is the integer n
+    arr = list(map(int, data[1:1+n]))  # Next n inputs are the array elements
+    
+    # Call user logic function and print the output
+    result = user_logic(n, arr)
+    print(result)
+
+if __name__ == "__main__":
+    main()
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(1)
