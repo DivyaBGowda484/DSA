@@ -16,3 +16,6 @@ if __name__ == "__main__":
     str = input()
     ans = halvesAreAlike(str)
     print("true" if ans else "false")
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
