@@ -15,3 +15,6 @@ s = input().strip()
 
 # Output
 print(remove_adjacent_duplicates(s))
+
+# TIME COMLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
