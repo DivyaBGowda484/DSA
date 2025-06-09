@@ -9,3 +9,6 @@ if __name__ == "__main__":
     m = int(input())
     count = find(m)
     print(count)
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
