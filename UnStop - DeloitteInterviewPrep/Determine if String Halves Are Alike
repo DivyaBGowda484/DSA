@@ -1,0 +1,18 @@
+Question 2: Determine if String Halves Are Alike (https://unstop.com/courses/unstop-practice-interview-pep/deloitte/deloitte-coding-assessment-29641/question-29698)
+
+def halvesAreAlike(S):
+    # Write your logic here
+    vowels = set('aeiouAEIOU')
+    mid = len(S) // 2
+    a, b = S[:mid], S[mid:]
+    
+    # Count vowels in both halves
+    count_a = sum(1 for char in a if char in vowels)
+    count_b = sum(1 for char in b if char in vowels)
+    
+    return count_a == count_b
+
+if __name__ == "__main__":
+    str = input()
+    ans = halvesAreAlike(str)
+    print("true" if ans else "false")
