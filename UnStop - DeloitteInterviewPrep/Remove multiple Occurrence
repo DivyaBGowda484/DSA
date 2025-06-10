@@ -1,0 +1,48 @@
+Question 5: Remove multiple Occurrence (https://unstop.com/courses/unstop-practice-interview-pep/deloitte/deloitte-coding-assessment-29641/question-37125)
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+def remove_duplicates(head):
+    current = head
+    while current and current.next:
+        if current.data == current.next.data:
+            # Skip the duplicate node
+            current.next = current.next.next
+        else:
+            current = current.next
+    return head
+
+def print_list(head):
+    result = []
+    while head:
+        result.append(str(head.data))
+        head = head.next
+    print(" ".join(result))
+
+def build_linked_list(arr):
+    if not arr:
+        return None
+    head = Node(arr[0])
+    current = head
+    for value in arr[1:]:
+        current.next = Node(value)
+        current = current.next
+    return head
+
+# Input
+N = int(input())
+arr = list(map(int, input().split()))
+
+# Build, process, and print
+head = build_linked_list(arr)
+updated_head = remove_duplicates(head)
+print_list(updated_head)
+
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
