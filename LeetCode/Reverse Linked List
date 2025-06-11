@@ -1,0 +1,36 @@
+Question 206: Reverse Linked List (https://leetcode.com/problems/reverse-linked-list?envType=problem-list-v2&envId=linked-list)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+# ITERATIVE APPROCH:
+        '''prev = None
+        curr = head
+
+        while curr:
+            next_node = curr.next     # Store next node
+            curr.next = prev          # Reverse the link
+            prev = curr               # Move prev forward
+            curr = next_node          # Move curr forward
+
+        return prev  # New head'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+# RECURSIVE APPROCH: - did not understand
+        if not head or not head.next:
+            return head # base case - if head is null or if it has 1 node
+        
+        new_head = self.reverseList(head.next)   # Recurse on rest
+        head.next.next = head  # Reverse the pointer
+        head.next = None       # Break original forward link
+
+        return new_head
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
