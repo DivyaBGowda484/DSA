@@ -1,0 +1,33 @@
+Question 1290: Convert Binary Number in a Linked List to Integer (https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer?envType=problem-list-v2&envId=linked-list)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def getDecimalValue(self, head: Optional[ListNode]) -> int:
+        '''binary_str = ""
+
+        # Build binary string
+        while head:
+            binary_str += str(head.val)
+            head = head.next
+
+        # Convert binary string to decimal
+        return int(binary_str, 2)'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+# OPTIMIZED APPROCH:
+        result = 0
+
+        while head:
+            result = result * 2 + head.val
+            head = head.next
+
+        return result
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
