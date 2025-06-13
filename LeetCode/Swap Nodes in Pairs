@@ -1,0 +1,50 @@
+Question 24: Swap Nodes in Pairs (https://leetcode.com/problems/swap-nodes-in-pairs?envType=problem-list-v2&envId=linked-list)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+# ITERATIVE APPROCH:
+        '''dummy = ListNode(0)     # Dummy node before head
+        dummy.next = head
+        prev = dummy
+
+        while prev.next and prev.next.next:
+            first = prev.next         # 1st node of the pair
+            second = first.next       # 2nd node of the pair
+
+            # Swapping
+            prev.next = second
+            first.next = second.next
+            second.next = first
+
+            # Move prev to the end of the swapped pair
+            prev = first
+
+        return dummy.next'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+# RECURSIVE APPROCH: # Din't understand
+        # BASE CASE: If there are 0 or 1 nodes left, return as-is
+        if not head or not head.next:
+            return head
+
+        first = head
+        second = head.next
+
+        # Recursive call to swap the rest of the list
+        first.next = self.swapPairs(second.next)
+
+        # Actual swap of current two nodes
+        second.next = first
+
+        # second is the new head of the swapped pair
+        return second
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
