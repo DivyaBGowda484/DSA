@@ -1,0 +1,25 @@
+Question 9: Palindrome Number (https://leetcode.com/problems/palindrome-number)
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        '''x = str(x)
+        return x == x[::-1]'''
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(log n)
+
+        # Negative numbers and numbers ending in 0 (but not 0 itself) are not palindromes
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+        
+        reversedHalf = 0
+        while x > reversedHalf:
+            reversedHalf = reversedHalf * 10 + x % 10
+            x //= 10
+        
+        # For even digits: x == reversed_half
+        # For odd digits: x == reversed_half // 10 (middle digit doesn't matter)
+        return x == reversedHalf or x == reversedHalf // 10
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
