@@ -1,0 +1,38 @@
+Question 283: Move Zeros (https://leetcode.com/problems/move-zeroes)
+
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        '''result = []
+        
+        # Copy non-zero elements
+        for num in nums:
+            if num != 0:
+                result.append(num)
+
+        # Count zeros and add to result
+        zero_count = len(nums) - len(result)
+        result.extend([0] * zero_count)
+
+        # Copy back to original array
+        for i in range(len(nums)):
+            nums[i] = result[i]'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+# OPTIMIZED APPROCH:
+        insert_zero = 0
+
+        for num in nums:
+            if num != 0:
+                nums[insert_zero] = num
+                insert_zero += 1
+
+        for i in range(insert_zero, len(nums)):
+            nums[i] = 0
+            
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
