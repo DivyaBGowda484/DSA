@@ -1,0 +1,13 @@
+Question 242: Valid Anagram (https://leetcode.com/problems/valid-anagram)
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        # return sorted(s) == sorted(t)
+
+# TIME COMPLEXITY: O(n log n)
+# SPACE COMPLEXITY: O(n)
+
+        return Counter(s) == Counter(t)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1) - only lowercase or O(n) - unicode
