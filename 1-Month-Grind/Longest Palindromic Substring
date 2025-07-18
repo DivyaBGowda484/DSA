@@ -1,0 +1,26 @@
+Question 5: Longest Palindromic Substring (https://leetcode.com/problems/longest-palindromic-substring)
+
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        def expandAroundCenter(left: int, right: int) -> str:
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            return s[left + 1:right]  # valid palindrome
+
+        longest = ""
+        for i in range(len(s)):
+            # Odd length
+            odd_pal = expandAroundCenter(i, i)
+            # Even length
+            even_pal = expandAroundCenter(i, i + 1)
+            # Update longest
+            if len(odd_pal) > len(longest):
+                longest = odd_pal
+            if len(even_pal) > len(longest):
+                longest = even_pal
+
+        return longest
+
+# TIME COMPLEXITY: O(n ^ 2) - for each center, expand up to n times
+# SPACE COMPLEXITY: O(1)
