@@ -1,0 +1,18 @@
+Question 162: Find Peak Element (https://leetcode.com/problems/find-peak-element)
+
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        left, right = 0, len(nums) - 1
+
+        while left < right:
+            mid = left + (right - left) // 2
+
+            if nums[mid] > nums[mid + 1]:
+                right = mid  # Peak is on the left side or at mid
+            else:
+                left = mid + 1  # Peak is on the right side
+
+        return left  # or right (same at the end)
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
