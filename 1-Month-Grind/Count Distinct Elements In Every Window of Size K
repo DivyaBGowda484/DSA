@@ -1,0 +1,21 @@
+Question: Count Distinct Elements In Every Window of Size K (https://www.geeksforgeeks.org/dsa/count-distinct-elements-in-every-window-of-size-k/)
+
+def countDistinct(arr, k):
+    n = len(arr)  
+    res = []
+  
+    # Iterate over every window
+    for i in range(n - k + 1):
+      
+        # Hash Set to count unique elements
+        st = set()
+        for j in range(i, i + k):
+            st.add(arr[j])
+      
+        # Size of set denotes the number of unique elements
+        # in the window
+        res.append(len(st))
+    return res
+
+# TIME COMPLEXITY: O(nk)
+# SPACE COMPLEXITY: O(n + k)
