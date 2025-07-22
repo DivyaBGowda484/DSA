@@ -1,0 +1,15 @@
+Question 168: Excel Sheet Column Title (https://leetcode.com/problems/excel-sheet-column-title)
+
+class Solution:
+    def convertToTitle(self, columnNumber: int) -> str:
+
+# ITERATIVE:
+        result = []
+        while columnNumber > 0:
+            columnNumber -= 1  # Adjust for 1-based to 0-based
+            result.append(chr(ord('A') + columnNumber % 26)) #Get the rightmost letter
+            columnNumber //= 26
+        return ''.join(reversed(result))
+
+# TIME COMPLEXITY: O(log n base a) # where a is 26(char)
+# SPACE COMPLEXITY: O(log n base a)
