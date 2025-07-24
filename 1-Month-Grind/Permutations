@@ -1,0 +1,16 @@
+Question 46: Permutations (https://leetcode.com/problems/permutations)
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+# ITERATIVE APPROCH:
+        res = [[]]
+        for num in nums:
+            new_res = []
+            for perm in res:
+                for i in range(len(perm)+1):
+                    new_res.append(perm[:i] + [num] + perm[i:])
+            res = new_res
+        return res
+
+# TIME COMPLEXITY: O(n!)
+# SPACE COMPLEXITY: O(n!)
