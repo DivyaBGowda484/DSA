@@ -1,0 +1,13 @@
+Question 78: Subsets (https://leetcode.com/problems/subsets)
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        
+# ITERATIVE APPROCH:
+        res = [[]]
+        for num in nums:
+            res += [curr + [num] for curr in res]
+        return res
+
+# TIME COMPLEXITY: O(2^n)
+# SPACE COMPLEXITY: O(2^n)
