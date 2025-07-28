@@ -1,0 +1,38 @@
+Question 496: Next Greater Element I (https://leetcode.com/problems/next-greater-element-i)
+
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        '''result = []
+
+        for num in nums1:
+            idx = nums2.index(num)
+            found = -1
+            for i in range(idx+1, len(nums2)):
+                if nums2[i] > num:
+                    found = nums2[i]
+                    break
+            result.append(found)
+        return result'''
+
+# TIME COMPLEXITY: O(m*n)
+# SPACE COMPLEXITY: O(m)
+
+# OPTIMIZED: 
+        stack = []
+        nge_map = {}
+
+        for num in nums2:
+            while stack and num > stack[-1]:
+                prev = stack.pop()
+                nge_map[prev] = num
+            stack.append(num)
+
+        # For elements with no greater element
+        for num in stack:
+            nge_map[num] = -1
+
+        # Result for nums1
+        return [nge_map[num] for num in nums1]
+
+# TIME COMPLEXITY: O(m+n)
+# SPACE COMPLEXITY: O(m+n)
