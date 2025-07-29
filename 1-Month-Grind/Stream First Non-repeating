@@ -1,0 +1,28 @@
+Question: Stream First Non-repeating (https://www.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream1216/1)
+
+from collections import deque
+
+class Solution:
+    def FirstNonRepeating(self, s):
+        q = deque()                  # Queue to track order of characters
+        freq = [0] * 26              # Frequency array for characters 'a' to 'z'
+        result = []
+
+        for ch in s:
+            idx = ord(ch) - ord('a')
+            freq[idx] += 1
+            q.append(ch)
+
+            # Remove all characters from the front that have freq > 1
+            while q and freq[ord(q[0]) - ord('a')] > 1:
+                q.popleft()
+
+            if q:
+                result.append(q[0])
+            else:
+                result.append('#')
+
+        return ''.join(result)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
