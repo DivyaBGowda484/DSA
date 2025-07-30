@@ -1,0 +1,29 @@
+Question 239: Sliding Window Maximum (https://leetcode.com/problems/sliding-window-maximum)
+
+class Solution:
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        q = deque()  # stores indices
+        result = []
+
+        for i in range(len(nums)):
+            # Remove elements not in the current window
+            if q and q[0] <= i - k:
+                q.popleft()
+
+            # Remove all elements smaller than the current one
+            while q and nums[q[-1]] < nums[i]:
+                q.pop()
+
+            # Add current element's index
+            q.append(i)
+
+            # Append the max value to result starting from when the first window is full
+            if i >= k - 1:
+                result.append(nums[q[0]])
+
+        return result
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(k)
+
+'''-------------------------------STRUCK----------------------------------'''
