@@ -1,4 +1,5 @@
 Question: Floor in BST (https://www.geeksforgeeks.org/problems/floor-in-bst/1)
+NOTE: Floor: the largest value in the BST less than or equal to x.
 
 #User function Template for python3
 
