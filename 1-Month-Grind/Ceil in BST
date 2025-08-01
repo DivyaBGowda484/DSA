@@ -1,0 +1,24 @@
+Question: Ceil in BST (https://www.geeksforgeeks.org/problems/implementing-ceil-in-bst/1)
+
+''' class Node:
+    def __init__(self, val):
+        self.right = None
+        self.key = val
+        self.left = None '''
+        
+class Solution:
+    def findCeil(self,root, inp):
+        # code here
+        res = -1
+        while root:
+            if root.key == inp:
+                return root.key
+            elif root.key < inp:
+                root = root.right
+            else:
+                res = root.key
+                root = root.left
+        return res
+        
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
