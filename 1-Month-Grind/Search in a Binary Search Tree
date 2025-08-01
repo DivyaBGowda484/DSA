@@ -1,0 +1,36 @@
+Question 700: Search in a Binary Search Tree (https://leetcode.com/problems/search-in-a-binary-search-tree)
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
+
+# Recursive Solution:
+        '''if not root:
+            return None
+        if val < root.val:
+            return self.searchBST(root.left, val)
+        elif val > root.val:
+            return self.searchBST(root.right, val)
+        else:
+            return root'''
+
+# TIME COMPLEXITY: O(h)
+# SPACE COMPLEXITY: O(h)
+
+# iterative Solution:
+        while root:
+            if val < root.val:
+                root = root.left
+            elif val > root.val:
+                root = root.right
+            else:
+                return root
+        return None
+
+# TIME COMPLEXITY: O(h)
+# SPACE COMPLEXITY: O(1)
