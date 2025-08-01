@@ -1,4 +1,5 @@
 Question: Ceil in BST (https://www.geeksforgeeks.org/problems/implementing-ceil-in-bst/1)
+NOTE: Ceil(X) is a number that is either equal to X or is immediately greater than X.
 
 ''' class Node:
     def __init__(self, val):
