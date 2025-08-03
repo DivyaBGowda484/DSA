@@ -1,0 +1,72 @@
+Question 23: Merge k Sorted Lists (https://leetcode.com/problems/merge-k-sorted-lists)
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+
+# Function to merge two sorted linked lists
+        '''def mergeTwoLists(l1, l2):
+            dummy = ListNode()
+            tail = dummy
+
+            while l1 and l2:
+                if l1.val < l2.val:
+                    tail.next = l1
+                    l1 = l1.next
+                else:
+                    tail.next = l2
+                    l2 = l2.next
+                tail = tail.next
+
+            tail.next = l1 or l2
+            return dummy.next
+
+        if not lists:
+            return None
+
+        # Merge k lists using divide and conquer
+        while len(lists) > 1:
+            merged = []
+
+            for i in range(0, len(lists), 2):
+                l1 = lists[i]
+                l2 = lists[i + 1] if i + 1 < len(lists) else None
+                merged.append(mergeTwoLists(l1, l2))
+
+            lists = merged
+
+        return lists[0]'''
+
+# TIME COMPLEXITY: O(n log K)
+# SPACE COMPLEXITY: O(1)
+
+# Min Heap / Priority Queue:
+        min_heap = []
+    
+        # Build initial heap
+        for i, node in enumerate(lists):
+            if node:
+                heapq.heappush(min_heap, (node.val, i, node))
+        
+        dummy = ListNode()
+        current = dummy
+        
+        while min_heap:
+            val, i, node = heapq.heappop(min_heap)
+            current.next = node
+            current = current.next
+            
+            if node.next:
+                heapq.heappush(min_heap, (node.next.val, i, node.next))
+        
+        return dummy.next
+
+# TIME COMPLEXITY: O(n log K)
+# SPACE COMPLEXITY: O(k)
+
+'''----------------------------STRUCK------------------------------------'''
