@@ -1,0 +1,18 @@
+Question: Indexes of Subarray Sum (https://www.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1)
+
+#User function Template for python3
+class Solution:
+    def subarraySum(self, arr, target):
+        l, cur = 0, 0
+        n = len(arr)
+        for r in range(n):
+            cur += arr[r]
+            while l < r and cur > target:
+                cur -= arr[l]
+                l += 1
+            if cur == target:
+                return [l+1, r+1]  # 1‑based
+        return [-1]
+                
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
