@@ -1,0 +1,13 @@
+Question: Number of occurrence (https://www.geeksforgeeks.org/problems/number-of-occurrence2259/1)
+
+class Solution:
+    def countFreq(self, arr, target):
+        # code here
+        count = 0
+        for num in arr:
+            if num == target:
+                count += 1
+        return count
+        
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
