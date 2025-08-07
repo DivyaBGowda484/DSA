@@ -1,0 +1,53 @@
+Question 229: Majority Element II (https://leetcode.com/problems/majority-element-ii)
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        '''counts = {}
+        for num in nums:
+            counts[num] = counts.get(num, 0) + 1
+
+        # Find all elements in the hash table that have a count greater than n/3.
+        result = []
+        for num, count in counts.items():
+            if count > len(nums) // 3:
+                result.append(num)
+
+        return result'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+        if not nums:
+            return []
+
+        # 1st pass: find candidates
+        count1 = count2 = 0
+        candidate1 = candidate2 = None
+
+        for num in nums:
+            if num == candidate1:
+                count1 += 1
+            elif num == candidate2:
+                count2 += 1
+            elif count1 == 0:
+                candidate1 = num
+                count1 = 1
+            elif count2 == 0:
+                candidate2 = num
+                count2 = 1
+            else:
+                count1 -= 1
+                count2 -= 1
+
+        # 2nd pass: verify counts
+        result = []
+        n = len(nums)
+        if nums.count(candidate1) > n // 3:
+            result.append(candidate1)
+        if candidate2 != candidate1 and nums.count(candidate2) > n // 3:
+            result.append(candidate2)
+
+        return result
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
