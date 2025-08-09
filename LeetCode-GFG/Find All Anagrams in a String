@@ -1,0 +1,76 @@
+Question 438: Find All Anagrams in a String (https://leetcode.com/problems/find-all-anagrams-in-a-string)
+
+from collections import Counter
+
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        '''res = []
+        p_sorted = sorted(p)
+        m, n = len(p), len(s)
+        
+        for i in range(n - m + 1):
+            if sorted(s[i:i+m]) == p_sorted:
+                res.append(i)
+        return res'''
+
+# TIME COMPLEXITY: O((n-m)m log m)
+# SPACE COMPLEXITY: O(m)
+
+# Optimized Using Sliding Window + Frequency Coun
+        '''res = []
+        m, n = len(p), len(s)
+        if m > n:
+            return res
+        
+        p_count = Counter(p)
+        window_count = Counter(s[:m])
+        
+        if window_count == p_count:
+            res.append(0)
+        
+        for i in range(m, n):
+            window_count[s[i]] += 1
+            window_count[s[i - m]] -= 1
+            
+            if window_count[s[i - m]] == 0:
+                del window_count[s[i - m]]
+            
+            if window_count == p_count:
+                res.append(i - m + 1)
+        
+        return res'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+# Using Fixed Array for Frequencies:
+        res = []
+        m, n = len(p), len(s)
+        if m > n:
+            return res
+        
+        # frequency arrays
+        p_count = [0] * 26
+        window_count = [0] * 26
+        
+        # fill frequency arrays for p and first window in s
+        for i in range(m):
+            p_count[ord(p[i]) - ord('a')] += 1
+            window_count[ord(s[i]) - ord('a')] += 1
+        
+        # check first window
+        if p_count == window_count:
+            res.append(0)
+        
+        # slide window
+        for i in range(m, n):
+            window_count[ord(s[i]) - ord('a')] += 1
+            window_count[ord(s[i - m]) - ord('a')] -= 1
+            
+            if p_count == window_count:
+                res.append(i - m + 1)
+        
+        return res
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
