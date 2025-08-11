@@ -1,0 +1,42 @@
+Question 350: Intersection of Two Arrays II (https://leetcode.com/problems/intersection-of-two-arrays-ii)
+
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+# Sorting + Two Pointers:
+        '''nums1.sort()
+        nums2.sort()
+        i, j = 0, 0
+        result = []
+
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] == nums2[j]:
+                result.append(nums1[i])
+                i += 1
+                j += 1
+            elif nums1[i] < nums2[j]:
+                i += 1
+            else:
+                j += 1
+
+        return result'''
+
+# TIME COMPLEXITY: O(m log m + n log n)
+# SPACE COMPLEXITY: O(min(m,n))
+
+# Using Hash Maps (Frequency Counting):
+        counts = {}
+        result = []
+
+        for num in nums1:
+            counts[num] = counts.get(num, 0) + 1
+
+        for num in nums2:
+            if counts.get(num, 0) > 0:
+                result.append(num)
+                counts[num] -= 1
+
+        return result
+
+# TIME COMPLEXITY: O(m+n)
+# SPACE COMPLEXITY: O(min(m,n))
