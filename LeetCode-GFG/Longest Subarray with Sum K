@@ -1,0 +1,51 @@
+Question: Longest Subarray with Sum K (https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1)
+
+class Solution:
+    def longestSubarray(self, arr, k):  
+        
+# Case 1: If all numbers are non-negative, use sliding window
+        if all(x >= 0 for x in arr):
+            start = 0
+            curr_sum = 0
+            max_len = 0
+
+            for end in range(len(arr)):
+                curr_sum += arr[end]
+
+                # Shrink the window until sum <= k
+                while curr_sum > k:
+                    curr_sum -= arr[start]
+                    start += 1
+
+                # If sum equals k, check length
+                if curr_sum == k:
+                    max_len = max(max_len, end - start + 1)
+
+            return max_len
+            
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+# Case 2: If there are negatives, use prefix sum + hash map
+        prefix_sum = 0
+        max_len = 0
+        prefix_map = {}
+
+        for i, num in enumerate(arr):
+            prefix_sum += num
+
+            if prefix_sum == k:
+                max_len = i + 1
+
+            if (prefix_sum - k) in prefix_map:
+                max_len = max(max_len, i - prefix_map[prefix_sum - k])
+
+            if prefix_sum not in prefix_map:
+                prefix_map[prefix_sum] = i
+
+        return max_len
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+'''-------------------------------STRUCK------------------------------------'''
