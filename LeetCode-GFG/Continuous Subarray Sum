@@ -1,0 +1,26 @@
+Question 523: Continuous Subarray Sum (https://leetcode.com/problems/continuous-subarray-sum)
+
+class Solution:
+    def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+        mod_map = {0: -1}  # mod value : earliest index
+        running_sum = 0
+
+        for i, num in enumerate(nums):
+            running_sum += num
+            if k != 0:
+                running_sum %= k
+            mod = running_sum
+
+            if mod in mod_map:
+                # Check subarray length >= 2
+                if i - mod_map[mod] > 1:
+                    return True
+            else:
+                mod_map[mod] = i
+
+        return False
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(min(n,k))
+
+'''----------------------------------STRUCk-----------------------------------'''
