@@ -1,0 +1,19 @@
+Question 190: Reverse Bits (https://leetcode.com/problems/reverse-bits?envType=problem-list-v2&envId=a0h7oz3h)
+
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        '''result = 0
+        for _ in range(32):
+            result = (result << 1) | (n & 1)
+            n >>= 1
+        return result'''
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
+
+        return int(f'{n:032b}'[::-1], 2)
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
+
+'''------------------------------------STRUCK----------------------------------'''
