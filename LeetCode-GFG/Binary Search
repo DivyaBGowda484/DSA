@@ -26,3 +26,23 @@ class Solution:
 
 # TIME COMPLEXITY: O(log n)
 # SPACE COMPLEXITY: O(1)
+
+Question: Binary Search (https://www.geeksforgeeks.org/problems/binary-search-1587115620/1)
+
+class Solution:
+    def binarysearch(self, arr, k):
+        low, high = 0, len(arr) - 1
+        result = -1
+        while low <= high:
+            mid = low + (high - low) // 2
+            if arr[mid] == k:
+                result = mid       # found one occurrence
+                high = mid - 1     # keep searching left for first occurrence
+            elif arr[mid] < k:
+                low = mid + 1
+            else:
+                high = mid - 1
+        return result
+        
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(log n)
