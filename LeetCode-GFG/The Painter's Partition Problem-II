@@ -1,0 +1,5 @@
+Question: The Painter's Partition Problem-II (https://www.geeksforgeeks.org/problems/the-painters-partition-problem1535/1#)
+
+class Solution:
+    def minTime (self, arr, k):
+        '''============================STRUCK==============================='''
