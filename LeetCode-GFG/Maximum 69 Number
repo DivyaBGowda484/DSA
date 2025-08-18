@@ -1,0 +1,12 @@
+Question 1323: Maximum 69 Number (https://leetcode.com/problems/maximum-69-number)
+
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        s = str(num)
+        if '6' in s:
+            n = s.index('6')
+            s = s[:n] + "9" + s[n+1:]
+        return int(s)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
