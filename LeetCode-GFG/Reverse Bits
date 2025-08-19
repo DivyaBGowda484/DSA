@@ -11,9 +11,15 @@ class Solution:
 # TIME COMPLEXITY: O(1)
 # SPACE COMPLEXITY: O(1)
 
-        return int(f'{n:032b}'[::-1], 2)
+        '''b = bin(n)[2:]                # convert to binary string
+        b = b.zfill(32)               # pad with leading zeros to make 32 bits
+        b = b[::-1]                   # reverse string
+        return int(b, 2)'''
 
 # TIME COMPLEXITY: O(1)
 # SPACE COMPLEXITY: O(1)
 
-'''------------------------------------STRUCK----------------------------------'''
+        return int(f'{n:032b}'[::-1], 2)
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
