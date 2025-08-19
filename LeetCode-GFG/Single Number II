@@ -1,0 +1,18 @@
+Question 137: Single Number II (https://leetcode.com/problems/single-number-ii)
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        '''count = {}
+        for num in nums:
+            count[num] = count.get(num, 0) + 1
+        for num, c in count.items():
+            if c == 1:
+                return num'''
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEZITY: O(n)
+
+        return (3 * sum(set(nums)) - sum(nums)) // 2
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEZITY: O(n)
