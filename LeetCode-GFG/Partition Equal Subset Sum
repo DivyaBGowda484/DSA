@@ -1,0 +1,26 @@
+Question 416:  Partition Equal Subset Sum (https://leetcode.com/problems/partition-equal-subset-sum)
+
+class Solution:
+    def canPartition(self, nums: List[int]) -> bool:
+        total = sum(nums)
+        if total % 2 != 0:  # odd sum cannot be partitioned
+            return False
+        
+        target = total // 2
+        possible = {0}  # sums we can make so far
+        
+        for num in nums:
+            new_sums = set()
+            for s in possible:
+                if s + num == target:
+                    return True
+                if s + num < target:
+                    new_sums.add(s + num)
+            possible |= new_sums  # update possible sums
+        return target in possible
+
+# TIME COMPLEXITY: O(n * target)
+# SPACE COMPLEXITY: O(target)
+
+
+'''=======================================STRUCK===================================='''
