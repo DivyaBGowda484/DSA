@@ -1,0 +1,22 @@
+Question: Factorial (https://www.geeksforgeeks.org/problems/factorial5739/1#)
+
+class Solution:
+    # Function to calculate factorial of a number.
+    def factorial(self, n: int) -> int:
+        
+# RECURSIVE: 
+        '''if n == 0 or n == 1:
+            return 1
+        return n * self.factorial(n-1)'''
+        
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+# ITERATIVE:
+        result = 1
+        for i in range(2, N+1):
+            result *= i
+        return result
+        
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
