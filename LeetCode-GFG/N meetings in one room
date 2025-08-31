@@ -1,0 +1,31 @@
+Question: N meetings in one room (https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1?utm_source=chatgpt.com)
+
+#User function Template for python3
+
+class Solution:
+    
+    #Function to find the maximum number of meetings that can
+    #be performed in a meeting room.
+    def maximumMeetings(self,start,end):
+        
+        n = len(start)
+        
+        # Step 1: Pair up meetings with (end, start)
+        meetings = [(end[i], start[i]) for i in range(n)]
+        
+        # Step 2: Sort by end time
+        meetings.sort()
+        
+        # Step 3: Greedy selection
+        count = 0
+        last_end = -1
+        
+        for e, s in meetings:
+            if s > last_end:  # strictly greater condition
+                count += 1
+                last_end = e
+        
+        return count
+        
+# TIME COMPLEXITY: O(n log n)
+# SPACE COMPLEXITY: O(n)
