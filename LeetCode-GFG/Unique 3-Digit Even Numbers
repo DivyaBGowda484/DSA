@@ -1,0 +1,26 @@
+Question 3483: Unique 3-Digit Even Numbers (https://leetcode.com/problems/unique-3-digit-even-numbers?envType=problem-list-v2&envId=recursion)
+
+class Solution:
+    def totalNumbers(self, digits: List[int]) -> int:
+        '''nums = set()
+        for perm in permutations(digits, 3):
+            if perm[0] != 0 and perm[2] % 2 == 0:  # valid number
+                num = perm[0]*100 + perm[1]*10 + perm[2]
+                nums.add(num)
+        return len(nums)'''
+
+# TIME COMPLEXITY: O(n^3)
+# SPACE COMPLEXITY: O(n)
+
+        count = Counter(digits)
+        ans = 0
+
+        for num in range(100, 1000, 2):  # only even numbers
+            c = Counter(map(int, str(num)))
+            if all(c[d] <= count[d] for d in c):
+                ans += 1
+
+        return ans
+
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1)
