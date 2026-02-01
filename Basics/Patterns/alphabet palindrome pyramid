@@ -1,0 +1,25 @@
+Question:
+
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+
+Solution:
+
+n = 5
+
+for i in range(n):
+    # spaces
+    print(" " * (n - i - 1), end="")
+
+    # increasing alphabets
+    for j in range(i + 1):
+        print(chr(65 + j), end="")
+
+    # decreasing alphabets
+    for j in range(i - 1, -1, -1):
+        print(chr(65 + j), end="")
+
+    print()
