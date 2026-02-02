@@ -1,0 +1,49 @@
+Question:
+
+**********
+****  ****
+***    ***
+**      **
+*        *
+**      **
+***    ***
+****  ****
+**********
+
+Solution:
+
+n = 5
+
+# Upper half
+for i in range(n):
+
+    # Left stars
+    for j in range(n - i):
+        print("*", end="")
+
+    # Middle spaces
+    for j in range(2 * i):
+        print(" ", end="")
+
+    # Right stars
+    for j in range(n - i):
+        print("*", end="")
+
+    print()
+
+# Lower half (fixed to avoid middle duplication)
+for i in range(n - 2, -1, -1):
+
+    # Left stars
+    for j in range(n - i):
+        print("*", end="")
+
+    # Middle spaces
+    for j in range(2 * i):
+        print(" ", end="")
+
+    # Right stars
+    for j in range(n - i):
+        print("*", end="")
+
+    print()
