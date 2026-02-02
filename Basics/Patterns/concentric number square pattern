@@ -1,0 +1,22 @@
+Question:
+
+5 5 5 5 5 5 5 5 5
+5 4 4 4 4 4 4 4 5
+5 4 3 3 3 3 3 4 5
+5 4 3 2 2 2 3 4 5
+5 4 3 2 1 2 3 4 5
+5 4 3 2 2 2 3 4 5
+5 4 3 3 3 3 3 4 5
+5 4 4 4 4 4 4 4 5
+5 5 5 5 5 5 5 5 5
+
+Solution:
+
+n = 5
+size = 2 * n - 1
+
+for i in range(size):
+    for j in range(size):
+        value = max(abs(i - (n - 1)), abs(j - (n - 1))) + 1
+        print(value, end=" ")
+    print()
