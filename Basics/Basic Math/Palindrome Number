@@ -1,0 +1,19 @@
+Question: Palindrome Number (https://leetcode.com/problems/palindrome-number)
+
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x < 0:
+            return False
+
+        original = x
+        res_no = 0
+
+        while x>0:
+            ld = x%10
+            res_no = (res_no * 10) +ld
+            x = x//10
+
+        return original == res_no
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
