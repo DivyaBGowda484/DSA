@@ -1,0 +1,17 @@
+Question: Armstrong Numbers
+
+class ArmstrongChecker:
+    def is_armstrong(num):
+        k = len(str(num))
+        sum = 0
+        n = num
+
+        while n > 0:
+            ld = n % 10
+            sum += ld ** k
+            n = n // 10
+
+        return sum == num
+
+# TIME COMPLEXITY: O(log 10 * n)
+# SPACE COMPLEXITY: O(1)
