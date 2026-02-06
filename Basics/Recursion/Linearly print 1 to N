@@ -1,0 +1,12 @@
+Question: Linearly print 1 to N
+
+def print_till_n(i,n):
+    if i>n:
+        return
+    print(i)
+    print_till_n(i+1,n)
+
+print_till_n(1,5)
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(N)
