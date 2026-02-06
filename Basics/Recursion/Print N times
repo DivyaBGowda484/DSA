@@ -9,4 +9,4 @@ def print_name(i,n):
 print_name(1,5)
 
 # TIME COMPLEXITY: O(N)
-# SPACE COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(N)
