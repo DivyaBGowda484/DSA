@@ -1,0 +1,9 @@
+Question: Print something N times using recursion
+
+def print_name(i,n):
+    if i>n:
+        return
+    print('Divya')
+    print_name(i+1, n)
+
+print_name(1,5)
