@@ -1,0 +1,12 @@
+Question: Print 1 to n using backtracking
+
+def print_linear(n):
+    if n == 0:
+        return
+    print_linear(n - 1)  # backtrack
+    print(n)
+
+print_linear(5)
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(N)
