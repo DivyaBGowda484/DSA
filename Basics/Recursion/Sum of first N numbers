@@ -1,0 +1,12 @@
+Question: Sum of first N numbers
+
+def sum(i, n):
+    if i < 1:
+        print(n)
+        return
+    sum(i-1, n+i)
+
+sum(5, 0)
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(N)
