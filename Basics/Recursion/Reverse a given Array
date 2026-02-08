@@ -1,0 +1,25 @@
+Question: Reverse a given Array
+
+def reverseArray(self, arr):
+        n = len(arr)
+        ans = [0] * n
+        for i in range(n):
+            ans[i] = arr[n - 1 - i]
+        return ans
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(N)
+
+(or)
+
+def reverseArray(self, arr):
+        p1 = 0
+        p2 = len(arr) - 1
+
+        while p1 < p2:
+            arr[p1], arr[p2] = arr[p2], arr[p1]
+            p1 += 1
+            p2 -= 1
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(1)
