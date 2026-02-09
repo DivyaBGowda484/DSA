@@ -23,3 +23,15 @@ def reverseArray(self, arr):
 
 # TIME COMPLEXITY: O(N)
 # SPACE COMPLEXITY: O(1)
+
+(or)
+
+def reverse_array(arr, left, right):
+    if left >= right:
+        return
+    
+    arr[left], arr[right] = arr[right], arr[left]
+    reverse_array(arr, left + 1, right - 1)
+
+# TIME COMPLEXITY: O(N)
+# SPACE COMPLEXITY: O(N)
