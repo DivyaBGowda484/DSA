@@ -1,0 +1,13 @@
+Question: Fibonacci
+
+def fibonacci(N):
+    if N <= 1:
+        return N
+
+    last = fibonacci(N - 1)   # (N-1)th term
+    slast = fibonacci(N - 2)  # (N-2)th term
+
+    return last + slast
+
+# TIME COMPLEXITY: O(N^2)
+# SPACE COMPLEXITY: O(N)
