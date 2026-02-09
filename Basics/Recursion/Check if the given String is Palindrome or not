@@ -1,4 +1,4 @@
-Question: Check if the given String is Palindrome or not
+Question: Check if the given String is Palindrome or not (https://leetcode.com/problems/valid-palindrome)
 
 def palindrome(i, s):
     if i >= len(s) // 2:
