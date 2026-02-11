@@ -59,3 +59,6 @@ class FrequencyCounter:
 
         print("The highest frequency element is:", maxEle)
         print("The lowest frequency element is:", minEle)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
