@@ -1,0 +1,15 @@
+Question: Bubble Sort
+
+class BubbleSort:
+    def bubble_sort(self, arr):
+        n = len(arr)
+        for i in range(n - 1, -1, -1):
+            for j in range(i):
+                if arr[j] > arr[j + 1]:
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+        
+        print("After Using Bubble Sort:")
+        print(" ".join(map(str, arr)))
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(1)
