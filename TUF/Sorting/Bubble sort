@@ -13,3 +13,23 @@ class BubbleSort:
 
 # TIME COMPLEXITY: O(n^2)
 # SPACE COMPLEXITY: O(1)
+
+(or)
+
+class BubbleSort:
+    def bubble_sort(self, arr):
+        n = len(arr)
+        for i in range(n - 1, -1, -1):
+            did_swap = False
+            for j in range(i):
+                if arr[j] > arr[j + 1]:
+                    arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                    did_swap = True
+            if not did_swap:
+                break
+
+        print("After Using Bubble Sort:")
+        print(" ".join(map(str, arr)))
+
+# TIME COMPLEXITY: O(n) - best case
+# SPACE COMPLEXITY: O(1)
