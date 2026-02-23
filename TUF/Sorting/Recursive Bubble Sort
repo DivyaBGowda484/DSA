@@ -1,0 +1,35 @@
+Question: Recursive Bubble Sort
+
+def bubble_sort(arr, n):
+    if n == 1:
+        return
+
+    for j in range(n - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+
+    bubble_sort(arr, n - 1)
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(n)
+
+(or)
+
+def bubble_sort(arr, n):
+    if n == 1:
+        return
+
+    did_swap = False
+
+    for j in range(n - 1):
+        if arr[j] > arr[j + 1]:
+            arr[j], arr[j + 1] = arr[j + 1], arr[j]
+            did_swap = True
+
+    if not did_swap:
+        return
+
+    bubble_sort(arr, n - 1)
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(n)
