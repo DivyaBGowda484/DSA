@@ -1,0 +1,13 @@
+Question: Recursive Insertion Sort
+
+def insertion_sort(arr, i, n):
+    if i == n:
+        return
+
+    j = i
+    while j > 0 and arr[j - 1] > arr[j]:
+        arr[j - 1], arr[j] = arr[j], arr[j - 1]
+        j -= 1
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(n)
