@@ -1,0 +1,78 @@
+Question: Rotate array by K elements
+
+class Solution:
+    def rotateRight(self, arr, k):
+        n = len(arr)
+        if n == 0:
+            return
+
+        k %= n
+        temp = arr[-k:]
+        for i in range(n - k - 1, -1, -1):
+            arr[i + k] = arr[i]
+
+        for i in range(k):
+            arr[i] = temp[i]
+
+    def rotateLeft(self, arr, k):
+        n = len(arr)
+        if n == 0:
+            return
+
+        k %= n
+        temp = arr[:k]
+
+        for i in range(k, n):
+            arr[i - k] = arr[i]
+
+        for i in range(k):
+            arr[n - k + i] = temp[i]
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(k)
+
+# OPTIMIZED:
+
+class Solution:
+    def reverse(self, nums, start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+
+    def rotateArray(self, nums, k, direction):
+        n = len(nums)
+
+        # Edge case: no rotation needed
+        if n == 0 or k == 0:
+            return nums
+
+        # Normalize k if it's larger than n
+        k = k % n
+
+        # If direction is right
+        if direction == "right":
+            # Step 1: reverse the entire array
+            self.reverse(nums, 0, n - 1)
+
+            # Step 2: reverse first k elements
+            self.reverse(nums, 0, k - 1)
+
+            # Step 3: reverse remaining n-k elements
+            self.reverse(nums, k, n - 1)
+
+        # If direction is left
+        elif direction == "left":
+            # Step 1: reverse first k elements
+            self.reverse(nums, 0, k - 1)
+
+            # Step 2: reverse remaining n-k elements
+            self.reverse(nums, k, n - 1)
+
+            # Step 3: reverse entire array
+            self.reverse(nums, 0, n - 1)
+
+        return nums
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
